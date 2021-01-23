@@ -1,0 +1,89 @@
+﻿@model SchoolMS.Models.Student
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/css/Admin.css" rel="stylesheet" />
+
+
+    <title>StudentRegistration</title>
+</head>
+<body>
+    <!-- multistep form -->
+    @using (Html.BeginForm("StudentRegistration", "Account", FormMethod.Post, new { @id = "msform" }))
+    {
+        @*<form id="msform" action="/Account/StudentRegistration" method="post">*@
+            <!-- progressbar -->
+            <!-- fieldsets -->
+
+
+            @*<fieldset>*@
+                <h2 class="fs-title">Personal Details</h2>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-5">
+                           @Html.TextBoxFor(a=>a.name, new { @placeholder = "name" })
+                        </div>
+                        <div class="col-lg-4">
+                            @Html.ValidationMessageFor(a => a.name, null, new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                    <br />
+                    <div class="row">
+
+                        <div class="col-lg-5">
+                            @*<input type="text" name="Email" placeholder="Email" />*@
+                            @Html.TextBoxFor(a => a.Email, new { @placeholder = "Email" })
+
+                        </div>
+                        <div class="col-lg-4">
+                            @Html.ValidationMessageFor(a => a.Email, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+
+                        <div class="col-lg-5">
+                            @Html.TextBoxFor(a => a.age, new { @placeholder = "Age" })
+                        </div>
+                        <div class="col-lg-4">
+                            @Html.ValidationMessageFor(a => a.age, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+
+                    <br />
+
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-3">
+                            @Html.LabelFor(a => a.Department)
+                        </div>
+                        <div class="col-lg-5 dropdown2">
+                            @Html.DropDownListFor(a => a.Department_id, (SelectList)ViewBag.DepList, "Choose Department", new { @class = "dropbtn" })
+                        </div>
+                        <div class="col-lg-4">
+                            @Html.ValidationMessageFor(a => a.Department_id, null, new { @class = "text-danger" })
+                        </div>
+                        <br />
+                        <input type="submit" name="submit" class="submit action-button" value="Add" />
+                    </div>
+                </div>
+            @*</fieldset>
+        </form>*@
+    }
+        <script src="~/Scripts/jquery-3.5.1.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    </body>
+</html>
+

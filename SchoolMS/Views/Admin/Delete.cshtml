@@ -1,0 +1,57 @@
+﻿
+@model SchoolMS.Models.Admin
+@{
+    ViewBag.Title = "Edit";
+    Layout = null;
+}
+<link href="~/css/Admin.css" rel="stylesheet" />
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+<form id="msform" action="/Admin/Delete" method="post">
+    <!-- progressbar -->
+    <!-- fieldsets -->
+    <center>  <h1 class="text-danger">Are You Sure do You want to Delete This Data</h1></center>
+  
+    <fieldset>
+     
+
+        <div class="container">
+            <div class="row">
+
+                <input name="id" value="@Model.Id" type="hidden" />
+                <input name="id" value="@Model.Password" type="hidden" />
+                <input name="id" value="@Model.ConfirmPassWord" type="hidden" />
+
+                <div class="col-lg-5">
+                    @Html.TextBoxFor(a => a.Name)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(a => a.Name, null, new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+            <br />
+
+            <div class="row">
+
+                <div class="col-lg-5">
+                    @Html.TextBoxFor(a => a.Salary)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(a => a.Salary, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            
+        </div>
+        
+    </fieldset>
+</form>
+
+
+
+</body>
+</html>
+
+

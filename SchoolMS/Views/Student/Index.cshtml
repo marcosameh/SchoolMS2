@@ -1,0 +1,53 @@
+﻿
+@model IEnumerable<SchoolMS.Models.Student>
+@{
+    ViewBag.Title = "Display";
+    Layout = null;
+}
+<h3>Welcome:@User.Identity.Name</h3>
+<h2">
+    <a href="/Account/StudentRegistration">Create New Employee</a>
+    <span class="fa fa-edit"></span>
+</h2">
+
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+<center>
+
+
+    <table class="table table-hover table-dark">
+        <tr class="font-weight-bold ">
+            <td>Id</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Age</td>
+            <td>Department_Id</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.Email</td>
+                    <td>@item.age</td>
+                    <td>@item.Department.Department_name</td>
+
+
+
+                    <td><a href="/Student/Edit/@item.id" class="btn btn-success">Edit <span class="fa fa-edit"></span></a></td>
+                    <td><a href="/Student/Delete/@item.id" class="btn btn-danger">Delete<span class="fa fa-trash"></span></a></td>
+                </tr>
+            }
+        }
+    </table>
+    <form action="/Account/SignOut">
+        <input type="submit" value="SignOut" class="btn btn-dark" />
+        </form>
+</center>
+
+
+
+

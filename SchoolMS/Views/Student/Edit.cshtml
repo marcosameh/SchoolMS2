@@ -1,0 +1,79 @@
+﻿@model SchoolMS.Models.Student
+@{
+    ViewBag.Title = "Edit";
+    Layout = null;
+}
+<link href="~/css/Admin.css" rel="stylesheet" />
+
+<form id="msform" action="/Student/Edit" method="post">
+    <!-- progressbar -->
+    <!-- fieldsets -->
+
+
+    <fieldset>
+        <h2 class="fs-title">Edit Admin</h2>
+
+        <div class="container">
+            <div class="row">
+                <input name="id" value="@Model.id" type="hidden" />
+                <input name="Department_id" value="@Model.Department_id" type="hidden" />
+
+
+
+                <div class="col-lg-5">
+                    @Html.TextBoxFor(a => a.name)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(a => a.name, null, new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+            <br />
+            <div class="row">
+
+
+
+                <div class="col-lg-5">
+                    @Html.TextBoxFor(a => a.Email)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(a => a.Email, null, new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+            <br />
+
+            <div class="row">
+
+                <div class="col-lg-5">
+                    @Html.TextBoxFor(a => a.age)
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(a => a.age, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 dropdown2">
+                    @Html.DropDownListFor(a => a.Department, (SelectList)ViewBag.Department, new { @class = "dropbtn" })
+
+                </div>
+                <div class="col-lg-4">
+                    @Html.ValidationMessageFor(a => a.Department_id, null, new { @class = "text-danger" })
+                </div>
+                <br />
+                <input type="submit" value="Edit" class="submit action-button" />
+                <input type="reset" value="Clear" class="submit action-button" />
+            </div>
+</fieldset>
+</form>
+
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>
+
+

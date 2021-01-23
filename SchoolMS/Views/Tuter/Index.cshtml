@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Show Tutors";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Scripts/jtable/themes/metro/red/jtable.css" rel="stylesheet" />
+
+    <div id="PersonTableContainer"></div>
+
+</head>
+<body>
+    <div>
+    </div>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/jtable/jquery.jtable.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#PersonTableContainer').jtable({
+                title: 'Table of Tutors',
+                actions: {
+                    listAction: '/Tuter/TutorList',
+                    createAction: '/Tuter/CreateTutor',
+                    updateAction: '/Tuter/UpdateTutor',
+                    deleteAction: '/Tuter/DeleteTutor'
+                },
+                fields: {
+                    Id: {
+                        title: 'Id',
+                        key: true,
+                        list: true,
+                        width: '25%',
+                        create: false,
+                        edit: false
+                    },
+                    Name: {
+                        title: 'Name',
+                        width: '25%',
+                        create: true,
+                        edit: true
+                    },
+                    Age: {
+                        title: 'Age',
+                        width: '25%',
+                        create: true,
+                        edit: true
+                    },
+                    Salary: {
+                        title: 'Salary',
+                        width: '25%',
+                        type: 'number',
+                        create: true,
+                        edit: true
+                    },
+                    PassWord: {
+                        list: false,
+                        title: 'Password',
+                        width: '25%',
+                        type: 'password',
+                        create: true,
+                        edit: false
+                    },
+                    ConfirmPassword: {
+                        list: false,
+                        title: 'ConfirmPassword',
+                        width: '25%',
+                        type: 'password',
+                        create: true,
+                        edit: false
+                    }
+                }
+            });
+            $('#PersonTableContainer').jtable('load');
+        });
+    </script>
+
+</body>
+
+</html>

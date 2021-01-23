@@ -1,0 +1,85 @@
+﻿<html>
+@model SchoolMS.Models.Student
+@{
+    ViewBag.Title = "Edit";
+    Layout = null;
+}
+
+
+
+<head>
+
+    <link href="~/Content/font-awesome.css" />
+    <link href="~/css/Admin.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="msform" action="/Student/Delete" method="post">
+        <!-- progressbar -->
+        <!-- fieldsets -->
+
+
+        <fieldset>
+            <h1 class="text-danger " >Are you sure do you want do delete this data<span class="fa fa-warning"></span></h1>
+
+            <div class="container">
+                <div class="row">
+                    <input name="id" value="@Model.id" type="hidden" />
+                    <input name="Department_id" value="@Model.Department_id" type="hidden" />
+
+
+
+                    <div class="col-lg-5">
+                        @Html.TextBoxFor(a => a.name)
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.ValidationMessageFor(a => a.name, null, new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <br />
+                <div class="row">
+
+
+
+                    <div class="col-lg-5">
+                        @Html.TextBoxFor(a => a.Email)
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.ValidationMessageFor(a => a.Email, null, new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <br />
+
+                <div class="row">
+
+                    <div class="col-lg-5">
+                        @Html.TextBoxFor(a => a.age)
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.ValidationMessageFor(a => a.age, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 dropdown2">
+                        @Html.DropDownListFor(a => a.Department_id, (SelectList)ViewBag.Department, new { @class = "dropbtn" })
+
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.ValidationMessageFor(a => a.Department_id, null, new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <input type="submit" value="Delete" class="submit action-button"  />
+                    
+                </div>
+        </fieldset>
+    </form>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,88 @@
+﻿@model SchoolMS.Models.Admin
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/css/Admin.css" rel="stylesheet" />
+
+    <title>AdminRegistration</title>
+</head>
+<body>
+    <!-- multistep form -->
+ 
+    @using (Html.BeginForm("AdminRegistration", "Account",FormMethod.Post,new { id= "msform", enctype = "multipart/form-data" }))
+    {
+    @*<form id="msform" action="/Account/AdminRegistration" method="post">*@
+        <!-- progressbar -->
+        <!-- fieldsets -->
+
+
+      
+            <h2 class="fs-title">AdminRegistration</h2>
+          
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-5">
+                        @Html.TextBoxFor(a => a.Name, new { @placeholder = "Name" })
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.ValidationMessageFor(a => a.Name, null, new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <br />
+                <div class="row">
+
+                    <div class="col-lg-5">
+                        @Html.PasswordFor(a => a.Password, new { @class = "form-control", @placeholder = "Password" })
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.ValidationMessageFor(a => a.Password, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+
+                    <div class="col-lg-5">
+                        @Html.PasswordFor(a => a.ConfirmPassWord, new { @class = "form-control", @placeholder = "ConfirmPassword" })
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.ValidationMessageFor(a => a.ConfirmPassWord, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+
+                    <div class="col-lg-5">
+                        @Html.TextBoxFor(a => a.Salary, new { @class = "form-control", @placeholder = "Salary" })
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.ValidationMessageFor(a => a.Salary, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+
+                    <div class="col-lg-5">
+                       <input type="file" name="photo" class="form-control"/>
+                    </div>
+                    </div>
+
+                    <input type="submit" value="Add" class="submit action-button" />
+
+                </div>
+
+                @*</form>*@
+                }
+                <script src="~/Scripts/jquery-3.5.1.js"></script>
+                <script src="~/Scripts/jquery.validate.js"></script>
+                <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>
